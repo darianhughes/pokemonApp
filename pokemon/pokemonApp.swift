@@ -12,6 +12,7 @@ struct pokemonApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+            temp
         }
     }
 }
