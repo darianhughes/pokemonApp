@@ -16,15 +16,15 @@ struct FavoritesView: View {
                 ForEach(favorites, id: \.self) { name in
                     NavigationLink(destination: PokemonDetailView(name: name, favorites: $favorites)) {
                         HStack {
-                            if let url = getSpriteURL(for: name) {
-                                AsyncImage(url: url) { image in
-                                    image.resizable()
-                                         .scaledToFit()
-                                         .frame(width: 50, height: 50)
-                                } placeholder: {
-                                    ProgressView().frame(width: 50, height: 50)
-                                }
-                            }
+                            //if let url = getSpriteURL(for: name) {
+                                //AsyncImage(url: url) { image in
+                                    //image.resizable()
+                                         //.scaledToFit()
+                                         //.frame(width: 50, height: 50)
+                                //} placeholder: {
+                                    //ProgressView().frame(width: 50, height: 50)
+                                //}
+                            //}
 
                             Text(name.capitalized)
                                 .font(.headline)
