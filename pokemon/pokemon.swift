@@ -54,3 +54,10 @@ extension Pokemon {
         return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(index).png")
     }
 }
+
+extension Pokemon {
+    var safeName: String {
+        let trimmed = url.trimmingCharacters(in: CharacterSet(charactersIn: "/"))
+        return trimmed.components(separatedBy: "/").last ?? name
+    }
+}

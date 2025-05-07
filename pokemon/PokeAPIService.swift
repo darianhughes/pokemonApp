@@ -27,8 +27,13 @@ class PokeAPIService {
                 completion(nil)
                 return
             }
-            let detail = try? JSONDecoder().decode(PokemonDetail.self, from: data)
-            completion(detail)
+            do {
+                let detail = try JSONDecoder().decode(PokemonDetail.self, from: data)
+                completion(detail)
+            } catch {
+                print("❌ Failed to decode detail: \(error.localizedDescription)")
+                completion(nil)
+            }
         }.resume()
     }
 }

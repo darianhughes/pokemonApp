@@ -21,7 +21,7 @@ struct PokemonListView: View {
                     .padding()
 
                 Button("Search") {
-                    api.fetchPokemonDetails(for: search) { detail in
+                    api.fetchPokemonDetails(for: search.lowercased()) { detail in
                         if let detail = detail {
                             DispatchQueue.main.async {
                                 self.pokemons = [Pokemon(name: search, url: "")]
