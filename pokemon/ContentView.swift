@@ -8,17 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
-}
+    @State private var favorites: [String] = []
 
-#Preview {
-    ContentView()
+    var body: some View {
+        TabView {
+            PokemonListView(favorites: $favorites)
+                .tabItem {
+                    Label("Browse", systemImage: "list.bullet")
+                }
+
+            FavoritesView(favorites: $favorites)
+                .tabItem {
+                    Label("Favorites", systemImage: "heart.fill")
+                }
+        }
+    }
 }
