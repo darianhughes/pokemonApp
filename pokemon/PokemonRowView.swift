@@ -8,28 +8,23 @@
 import SwiftUI
 
 struct PokemonRowView: View {
-    let name: String
-    @StateObject private var imageFetcher = PokemonImageFetcher()
+    let pokemon: Pokemon
 
     var body: some View {
         HStack {
-            if let imageURL = imageFetcher.imageURL {
-                AsyncImage(url: imageURL) { image in
+            if let url = pokemon.spriteURL {
+                AsyncImage(url: url) { image in
                     image.resizable()
                          .scaledToFit()
                          .frame(width: 50, height: 50)
                 } placeholder: {
                     ProgressView().frame(width: 50, height: 50)
                 }
-            } else {
-                Color.gray.frame(width: 50, height: 50).cornerRadius(5)
             }
 
-            Text(name.capitalized)
+            Text(pokemon.name.capitalized)
                 .font(.headline)
-        }
-        .onAppear {
-            imageFetcher.fetchImage(for: name)
         }
     }
 }
+

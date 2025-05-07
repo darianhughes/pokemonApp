@@ -42,3 +42,15 @@ struct PokemonAbilityEntry: Codable {
 struct AbilityName: Codable {
     let name: String
 }
+
+extension Pokemon {
+    var index: Int? {
+        let components = url.split(separator: "/")
+        return Int(components.last ?? "")
+    }
+
+    var spriteURL: URL? {
+        guard let index = index else { return nil }
+        return URL(string: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/\(index).png")
+    }
+}

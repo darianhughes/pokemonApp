@@ -32,7 +32,7 @@ struct PokemonListView: View {
 
                 List(pokemons) { pokemon in
                     NavigationLink(destination: PokemonDetailView(name: pokemon.name, favorites: $favorites)) {
-                        PokemonRowView(name: pokemon.name)
+                        PokemonRowView(pokemon: pokemon)
                     }
                 }
                 .onAppear {
