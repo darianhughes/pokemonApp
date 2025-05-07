@@ -32,7 +32,7 @@ struct PokemonListView: View {
 
                 List(pokemons) { pokemon in
                     NavigationLink(destination: PokemonDetailView(name: pokemon.name, favorites: $favorites)) {
-                        Text(pokemon.name.capitalized)
+                        PokemonRowView(name: pokemon.name)
                     }
                 }
                 .onAppear {
@@ -43,7 +43,7 @@ struct PokemonListView: View {
                     }
                 }
             }
-            .navigationTitle("Pokémon")
+            .navigationTitle("Pokémon Finder")
         }
     }
 }
